@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<!-- saved from url=(0057)file:///C:/Users/Balcao1/Downloads/qr_code_generator.html -->
+<html lang="pt-br"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de QR Code</title>
+    <script src="./Gerador de QR Code_files/qrcode.min.js.download"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        input[type="text"] {
+            width: 80%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #qrcode {
+            margin-top: 20px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Gerador de QR Code</h1>
+        <input type="text" id="qrInput" placeholder="Digite o texto ou URL aqui">
+        <button onclick="generateQRCode()">Gerar QR Code</button>
+        <div id="qrcode"></div>
+    </div>
+
+    <script>
+        function generateQRCode() {
+            var qrInput = document.getElementById("qrInput").value;
+            var qrcodeDiv = document.getElementById("qrcode");
+            qrcodeDiv.innerHTML = ""; // Limpa o QR Code anterior, se houver
+
+            if (qrInput) {
+                new QRCode(qrcodeDiv, {
+                    text: qrInput,
+                    width: 256,
+                    height: 256,
+                    colorDark : "#000000",
+                    colorLight : "#ffffff",
+                    correctLevel : QRCode.CorrectLevel.H
+                });
+            } else {
+                alert("Por favor, digite um texto ou URL para gerar o QR Code.");
+            }
+        }
+    </script>
+
+
+
+
+</body></html>
